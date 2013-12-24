@@ -1,0 +1,41 @@
+<h1>Listing bookingcars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Car</th>
+      <th>User</th>
+      <th>Destination</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Participant</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookingcars.each do |bookingcar| %>
+      <tr>
+        <td><%= Car.find(bookingcar.car_id).police_number %></td>
+        <td><%= User.find(bookingcar.user_id).name %></td>
+        <td><%= bookingcar.destination %></td>
+        <td><%= bookingcar.description %></td>
+        <td><%= bookingcar.start_time %></td>
+        <td><%= bookingcar.end_time %></td>
+        <td><%= bookingcar.participant %></td>
+        <td><%= bookingcar.status %></td>
+        <td><%= link_to 'Show', bookingcar %></td>
+        <td><%= link_to 'Edit', edit_bookingcar_path(bookingcar) %></td>
+        <td><%= link_to 'Destroy', bookingcar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bookingcar', new_bookingcar_path %>

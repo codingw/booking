@@ -1,0 +1,49 @@
+<%= form_for(@bookingroom) do |f| %>
+  <% if @bookingroom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookingroom.errors.count, "error") %> prohibited this bookingroom from being saved:</h2>
+
+      <ul>
+      <% @bookingroom.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :room_id %><br>
+    <%= f.select :room_id, Room.all.collect {|room| [ room.name, room.id ] } %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.select :user_id, User.where(level_id: 3).collect {|user| [ user.name, user.id ] } %>
+  </div>
+  <div class="field">
+    <%= f.label :meeting %><br>
+    <%= f.text_field :meeting %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.datetime_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :participant %><br>
+    <%= f.number_field :participant %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.number_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking System</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <a href="/divisions">Divisions</a>
+  <a href="/users">Users</a>
+  <a href="/cars">Cars</a>
+  <a href="/rooms">Rooms</a>
+  <a href="/bookingcars">Bookingcars</a>
+  <a href="/bookingrooms">Bookingrooms</a>
+<%= yield %>
+
+</body>
+</html>

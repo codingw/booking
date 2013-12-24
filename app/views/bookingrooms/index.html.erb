@@ -1,0 +1,41 @@
+<h1>Listing bookingrooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Room</th>
+      <th>User</th>
+      <th>Meeting</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Participant</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookingrooms.each do |bookingroom| %>
+      <tr>
+        <td><%= bookingroom.room_id %></td>
+        <td><%= bookingroom.user_id %></td>
+        <td><%= bookingroom.meeting %></td>
+        <td><%= bookingroom.description %></td>
+        <td><%= bookingroom.start_time %></td>
+        <td><%= bookingroom.end_time %></td>
+        <td><%= bookingroom.participant %></td>
+        <td><%= bookingroom.status %></td>
+        <td><%= link_to 'Show', bookingroom %></td>
+        <td><%= link_to 'Edit', edit_bookingroom_path(bookingroom) %></td>
+        <td><%= link_to 'Destroy', bookingroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bookingroom', new_bookingroom_path %>

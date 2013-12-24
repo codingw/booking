@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @bookingroom.room_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bookingroom.user_id %>
+</p>
+
+<p>
+  <strong>Meeting:</strong>
+  <%= @bookingroom.meeting %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bookingroom.description %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @bookingroom.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @bookingroom.end_time %>
+</p>
+
+<p>
+  <strong>Participant:</strong>
+  <%= @bookingroom.participant %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @bookingroom.status %>
+</p>
+
+<%= link_to 'Edit', edit_bookingroom_path(@bookingroom) %> |
+<%= link_to 'Back', bookingrooms_path %>

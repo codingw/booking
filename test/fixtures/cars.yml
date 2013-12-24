@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  police_number: MyString
+  merk: MyString
+  capacity: 1
+  driver_id: 1
+
+two:
+  police_number: MyString
+  merk: MyString
+  capacity: 1
+  driver_id: 1

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  car_id: 1
+  user_id: 1
+  destination: MyString
+  description: MyText
+  start_time: 2013-12-24 16:44:30
+  end_time: 2013-12-24 16:44:30
+  participant: 1
+  status: 1
+
+two:
+  car_id: 1
+  user_id: 1
+  destination: MyString
+  description: MyText
+  start_time: 2013-12-24 16:44:30
+  end_time: 2013-12-24 16:44:30
+  participant: 1
+  status: 1

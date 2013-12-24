@@ -1,0 +1,33 @@
+<h1>Listing cars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Police number</th>
+      <th>Merk</th>
+      <th>Capacity</th>
+      <th>Driver</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.police_number %></td>
+        <td><%= car.merk %></td>
+        <td><%= car.capacity %></td>
+        <td><%= User.find(car.driver_id).name %></td>
+        <td><%= link_to 'Show', car %></td>
+        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car', new_car_path %>

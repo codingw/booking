@@ -1,0 +1,191 @@
+  [1m[36m (7.2ms)[0m  [1mCREATE TABLE "divisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.5ms)[0m  CREATE TABLE "levels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "capacity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (7.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.9ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (8.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131224153718')[0m
+  [1m[35m (7.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131224152612')
+  [1m[36m (8.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131224153044')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.7ms)[0m  [1mDELETE FROM "rooms"[0m
+  [1m[35mFixture Insert (1.1ms)[0m  INSERT INTO "rooms" ("name", "capacity", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2013-12-24 15:39:35', '2013-12-24 15:39:35', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "rooms" ("name", "capacity", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2013-12-24 15:39:35', '2013-12-24 15:39:35', 298486374)[0m
+  [1m[35mFixture Delete (0.9ms)[0m  DELETE FROM "levels"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "levels" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-12-24 15:39:35', '2013-12-24 15:39:35', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "levels" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-12-24 15:39:35', '2013-12-24 15:39:35', 298486374)
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM "divisions"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "divisions" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2013-12-24 15:39:35', '2013-12-24 15:39:35', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "divisions" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2013-12-24 15:39:35', '2013-12-24 15:39:35', 298486374)[0m
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+DivisionsControllerTest: test_should_create_division
+----------------------------------------------------
+  [1m[35mDivision Load (2.4ms)[0m  SELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "divisions"[0m
+Processing by DivisionsController#create as HTML
+  Parameters: {"division"=>{"description"=>"MyText", "name"=>"MyString"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDivision Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "divisions" WHERE "divisions"."name" = 'MyString' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered divisions/_form.html.erb (48.5ms)
+  Rendered divisions/new.html.erb within layouts/application (100.5ms)
+Completed 200 OK in 1706ms (Views: 1634.9ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "divisions"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+DivisionsControllerTest: test_should_destroy_division
+-----------------------------------------------------
+  [1m[35mDivision Load (1.7ms)[0m  SELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "divisions"[0m
+Processing by DivisionsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDivision Load (0.1ms)[0m  SELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  DELETE FROM "divisions" WHERE "divisions"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/divisions
+Completed 302 Found in 7ms (ActiveRecord: 2.7ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "divisions"
+  [1m[36m (2.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+DivisionsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mDivision Load (1.8ms)[0m  [1mSELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DivisionsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDivision Load (0.2ms)[0m  SELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered divisions/_form.html.erb (5.4ms)
+Completed 200 OK in 56ms (Views: 54.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+DivisionsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mDivision Load (1.8ms)[0m  [1mSELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DivisionsController#index as HTML
+  [1m[35mDivision Load (0.3ms)[0m  SELECT "divisions".* FROM "divisions"
+Completed 200 OK in 56ms (Views: 54.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+DivisionsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mDivision Load (1.9ms)[0m  [1mSELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DivisionsController#new as HTML
+  Rendered divisions/_form.html.erb (5.6ms)
+Completed 200 OK in 26ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+DivisionsControllerTest: test_should_show_division
+--------------------------------------------------
+  [1m[35mDivision Load (1.8ms)[0m  SELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DivisionsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDivision Load (0.2ms)[0m  [1mSELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 61ms (Views: 59.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+DivisionsControllerTest: test_should_update_division
+----------------------------------------------------
+  [1m[35mDivision Load (2.1ms)[0m  SELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DivisionsController#update as HTML
+  Parameters: {"division"=>{"description"=>"MyText", "name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mDivision Load (0.2ms)[0m  [1mSELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDivision Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "divisions" WHERE ("divisions"."name" = 'MyString' AND "divisions"."id" != 980190962) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered divisions/_form.html.erb (8.6ms)
+Completed 200 OK in 41ms (Views: 30.5ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36mRoom Load (39.9ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"capacity"=>"1", "name"=>"MyString"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRoom Exists (0.3ms)[0m  SELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'MyString' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered rooms/_form.html.erb (18.8ms)
+Completed 200 OK in 153ms (Views: 138.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+RoomsControllerTest: test_should_destroy_room
+---------------------------------------------
+  [1m[36mRoom Load (2.0ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.5ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 7ms (ActiveRecord: 2.9ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (3.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+RoomsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mRoom Load (1.9ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered rooms/_form.html.erb (4.5ms)
+Completed 200 OK in 58ms (Views: 56.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mRoom Load (1.9ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 59ms (Views: 58.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mRoom Load (1.7ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (3.6ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[36mRoom Load (1.9ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 52ms (Views: 50.1ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_update_room
+--------------------------------------------
+  [1m[36mRoom Load (1.9ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"capacity"=>"1", "name"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRoom Exists (0.4ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'MyString' AND "rooms"."id" != 980190962) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered rooms/_form.html.erb (6.0ms)
+Completed 200 OK in 33ms (Views: 26.4ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
