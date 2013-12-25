@@ -1,13 +1,11 @@
 <h1>Listing divisions</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Action</th>
     </tr>
   </thead>
 
@@ -16,9 +14,9 @@
       <tr>
         <td><%= division.name %></td>
         <td><%= division.description %></td>
-        <td><%= link_to 'Show', division %></td>
-        <td><%= link_to 'Edit', edit_division_path(division) %></td>
-        <td><%= link_to 'Destroy', division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', division %>
+        <%= link_to 'Edit', edit_division_path(division) %>
+        <%= link_to 'Destroy', division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

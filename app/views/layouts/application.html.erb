@@ -7,13 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <a href="/divisions">Divisions</a>
-  <a href="/users">Users</a>
-  <a href="/cars">Cars</a>
-  <a href="/rooms">Rooms</a>
-  <a href="/bookingcars">Bookingcars</a>
-  <a href="/bookingrooms">Bookingrooms</a>
-<%= yield %>
+<div id="page">
+  <div class="navbar navbar-inverse" role="navigation">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/bookingcars">Booking Cars</a></li>
+      <li><a href="/bookingrooms">Booking Rooms</a></li>
+      <li><a href="/divisions">Divisions</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/rooms">Rooms</a></li>
+      <li><a href="/cars">Cars</a></li>
+      <!-- <li class="dropdown"> -->
+      <!--   <a href="#" class="dropdown&#45;toggle" data&#45;toggle="dropdown">Master <b class="caret"></b></a> -->
+      <!--   <ul class="dropdown&#45;menu" role="menu"> -->
+      <!--     <li><a href="/divisions">Divisions</a></li> -->
+      <!--     <li><a href="/users">Users</a></li> -->
+      <!--     <li class="divider"></li> -->
+      <!--     <li><a href="#">Rooms</a></li> -->
+      <!--     <li><a href="#">Cars</a></li> -->
+      <!--     <li><a href="#">Drivers</a></li> -->
+      <!--   </ul> -->
+      <!-- </li> -->
+    </ul>
+  </div>
 
+  <div id="container">
+    <div class="col-md-10">
+      <%= yield %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
 </body>
 </html>
