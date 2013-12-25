@@ -1,4 +1,5 @@
 Blog::Application.routes.draw do
+  root 'bookingcars#index'
   resources :bookingrooms
 
   resources :bookingcars
