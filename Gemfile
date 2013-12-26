@@ -47,3 +47,5 @@ end
 group :assets do
   gem 'bootstrap-sass'
 end
+
+gem 'kaminari'
