@@ -1,4 +1,4 @@
-<%= form_for(@bookingcar) do |f| %>
+<%= form_for(@bookingcar, class: 'form-horizontal') do |f| %>
   <% if @bookingcar.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bookingcar.errors.count, "error") %> prohibited this bookingcar from being saved:</h2>
@@ -44,6 +44,7 @@
     <%= f.number_field :status %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: 'btn btn-info' %>
+    <%= link_to 'Back', bookingcars_path, class: 'btn btn-warning' %>
   </div>
 <% end %>

@@ -9,26 +9,22 @@
 <body>
 <div id="page">
   <div class="navbar navbar-inverse" role="navigation">
+
     <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/bookingcars">Booking Cars</a></li>
-      <li><a href="/bookingrooms">Booking Rooms</a></li>
-      <li><a href="/divisions">Divisions</a></li>
-      <li><a href="/users">Users</a></li>
-      <li><a href="/rooms">Rooms</a></li>
-      <li><a href="/cars">Cars</a></li>
-      <!-- <li class="dropdown"> -->
-      <!--   <a href="#" class="dropdown&#45;toggle" data&#45;toggle="dropdown">Master <b class="caret"></b></a> -->
-      <!--   <ul class="dropdown&#45;menu" role="menu"> -->
-      <!--     <li><a href="/divisions">Divisions</a></li> -->
-      <!--     <li><a href="/users">Users</a></li> -->
-      <!--     <li class="divider"></li> -->
-      <!--     <li><a href="#">Rooms</a></li> -->
-      <!--     <li><a href="#">Cars</a></li> -->
-      <!--     <li><a href="#">Drivers</a></li> -->
-      <!--   </ul> -->
-      <!-- </li> -->
+      <% if user_signed_in? %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/bookingcars">Booking Cars</a></li>
+        <li><a href="/bookingrooms">Booking Rooms</a></li>
+        <li><a href="/divisions">Divisions</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/rooms">Rooms</a></li>
+        <li><a href="/cars">Cars</a></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
     </ul>
+
   </div>
 
   <div id="container">
