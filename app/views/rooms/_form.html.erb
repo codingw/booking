@@ -20,6 +20,7 @@
     <%= f.number_field :capacity %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: 'btn btn-success' %>
+    <%= link_to 'Back', rooms_path, class: 'btn btn-warning' %>
   </div>
 <% end %>

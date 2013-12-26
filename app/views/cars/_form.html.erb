@@ -28,6 +28,7 @@
     <%= f.select :driver_id, User.where(level_id: 5).collect {|driver| [ driver.name, driver.id ] } %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: 'btn btn-success' %>
+    <%= link_to 'Back', cars_path, class: 'btn btn-success' %>
   </div>
 <% end %>
