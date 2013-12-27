@@ -1,9 +1,15 @@
 require 'spec_helper'
 
 describe RoomsController do
+
   describe 'GET /index' do
+    let(:user) { create :user, :ga }
+
     let!(:room) { create :room, :firefox }
-    before(:each) { get :index }
+    before(:each) do
+      sign_in user  
+      get :index
+    end
     
     it "assigns @rooms" do expect(assigns(:rooms)).to be_present end
     it { should respond_with(200) }

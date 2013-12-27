@@ -41,7 +41,8 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include FactoryGirl::Syntax::Methods
-
+  config.include Devise::TestHelpers
+  
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:deletion)
@@ -49,6 +50,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    request.env['devise.mappings'] = Devise.mappings[:user]
   end
 
   config.after(:each) do
