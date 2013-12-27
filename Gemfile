@@ -64,4 +64,4 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'devise'
+gem 'activeadmin', :github => "gregbell/active_admin"
